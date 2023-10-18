@@ -271,6 +271,7 @@ const Register = () => {
             setIsSubmitting(false)
             console.log(res.data);
             await SecureStore.setItemAsync("biyekorun_token", res.data?.token?.accessToken);
+            Alert.alert("Registered succesfully")
         })
         .catch(err=>{
             setIsSubmitting(false)
