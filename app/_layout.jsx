@@ -11,7 +11,7 @@ import {
   PaperProvider,
 } from 'react-native-paper';
 import theme from '../constants/theme';
-import store, { persistor } from '../store';
+import  { persistor,store } from '../store';
 
 
 export {
@@ -28,18 +28,6 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-
-  // console.log(store.getState().auth);
-  // const { isAuthenticated } = useSelector(state => state.auth)
-
-  // useEffect(() => {
-
-  //     if (isAuthenticated) {
-  //        router.push("/profile")
-  //     }
-
-  // }, [isAuthenticated])
-
 
 
   const [loaded, error] = useFonts({

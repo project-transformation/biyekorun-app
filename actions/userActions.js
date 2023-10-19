@@ -1,16 +1,17 @@
 import axiosInstance from "../lib/axiosInstance";
-import store from "../store";
+import { setProfile } from "../store/reducer/authSlice";
+// import store from "../store";
 
-export const getUser = () => {
-    axiosInstance.get('/user/mychats')
-        .then(async res => {
-            store.dispatch({
-                type: "SET_USER",
-                payload: res.data
+export const getUserData = () => {
+    return (dispatch) => {
+        axiosInstance.get('/user')
+            .then(async res => {
+                dispatch(setProfile(res.data.data))
+
             })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
-        })
-        .catch(err => {
-            console.log(err);
-        })
 }

@@ -1,24 +1,18 @@
-import { createStore } from 'redux'
-import rootReducer from './reducer/combineReducer'
-import { persistStore, persistReducer } from 'redux-persist'
-// import storage from 'redux-persist/lib/storage'
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// Secure storage
-
+import rootReducer from './reducer/combineReducer';
 
 const persistConfig = {
-    key: 'root',
-    storage:AsyncStorage,
-    // blacklist: ['auth']
-}
-const init = {}
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+  key: 'root',
+  storage: AsyncStorage,
+//   whitelist: ['key1', 'key2'],//Things you want to persist
+//   blacklist: ['key3', 'key4'],//Things you don't want to persist
+};
 
-const store = createStore(persistedReducer, init)
-let persistor = persistStore(store)
-export default store
-export { persistor }
-
-//  ,
-//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// Middleware: Redux Persist Persisted Reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+export const persistor = persistStore(store);

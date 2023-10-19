@@ -11,6 +11,7 @@ import { Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import * as SecureStore from 'expo-secure-store';
 import { router } from 'expo-router';
+import { setUser } from '../../store/reducer/authSlice';
 
 const login = () => {
     const dispatch = useDispatch()
@@ -73,12 +74,9 @@ const login = () => {
                 setIsSubmitting(false)
                 console.log(res.data);
                 await SecureStore.setItemAsync("biyekorun_token", res.data?.token?.accessToken);
-                dispatch({
-                    type:"SET_PROFILE",
-                    payload:res.data?.data
-                })
+                dispatch(setUser(res.data?.data))
 
-                router.push("/profile")
+                router.push("/(tabs)/home")
             })
             .catch(err => {
                 setIsSubmitting(false)

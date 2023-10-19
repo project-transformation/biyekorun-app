@@ -5,24 +5,28 @@ import Colors from '../constants/Colors'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { ExternalLink } from '../components/ExternalLink'
 import { Redirect, router } from 'expo-router'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserData } from '../actions/userActions'
 
 
 const index = () => {
 
     const { isAuthenticated } = useSelector(state => state.auth)
+    const disPatch = useDispatch()
 
-    // useEffect(() => {
 
-    //     if (isAuthenticated) {
-    //         return <Redirect  href={"/profile"} />
-    //         router.push("/profile")
-    //     }
 
-    // }, [isAuthenticated])
+    useEffect(() => {
+        if (isAuthenticated) {
+
+            disPatch(getUserData())
+
+        }
+    }, [isAuthenticated])
+
     if (isAuthenticated) {
-        return <Redirect  href={"/(tabs)/home"} />
-       
+        return <Redirect href={"/(tabs)/home"} />
+
     }
 
     return (
