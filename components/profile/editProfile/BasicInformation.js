@@ -20,6 +20,10 @@ import Selector from '../../Selector'
 import axiosInstance from '../../../lib/axiosInstance'
 import { Alert } from 'react-native'
 import { getUserData } from '../../../actions/userActions'
+
+const notSpecfied = "Not Specfied"
+
+
 const BasicInformation = () => {
     const dispatch = useDispatch()
 
