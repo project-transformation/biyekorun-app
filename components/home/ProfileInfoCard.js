@@ -73,7 +73,8 @@ export default ProfileInfoCard
 const styles = StyleSheet.create({
     cardWrapper: {
         flexDirection: 'row',
-        padding: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
         gap: 7,
         alignItems: 'center',
         backgroundColor: '#F7F7F7', // Add a background color

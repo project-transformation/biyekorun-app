@@ -1,3 +1,42 @@
+export const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+
+export const maritalStatuses = [
+    "Never Married",
+    // "Married",
+    "Divorced",
+    "Widowed",
+    "Awaiting Divorce",
+  ];
+  export const heights = [
+    { label: "4ft 5in - 134cm", value: "53" },
+    { label: "4ft 6in - 137cm", value: "54" },
+    { label: "4ft 7in - 139cm", value: "55" },
+    { label: "4ft 9in - 142cm", value: "57" },
+    { label: "4ft 10in - 144cm", value: "58" },
+    { label: "4ft 11in - 147cm", value: "59" },
+    { label: "5ft 1in - 154cm", value: "61" },
+    { label: "5ft 2in - 157cm", value: "62" },
+    { label: "5ft 3in - 160cm", value: "63" },
+    { label: "5ft 4in - 162cm", value: "64" },
+    { label: "5ft 5in - 165cm", value: "65" },
+    { label: "5ft 6in - 167cm", value: "66" },
+    { label: "5ft 7in - 170cm", value: "67" },
+    { label: "5ft 8in - 172cm", value: "68" },
+    { label: "5ft 9in - 175cm", value: "69" },
+    { label: "5ft 10in - 177cm", value: "70" },
+    { label: "5ft 11in - 180cm", value: "71" },
+    { label: "6ft 1in - 185cm", value: "73" },
+    { label: "6ft 2in - 187cm", value: "74" },
+    { label: "6ft 3in - 190cm", value: "75" },
+    { label: "6ft 4in - 193cm", value: "76" },
+    { label: "6ft 5in - 195cm", value: "77" },
+    { label: "6ft 6in - 198cm", value: "78" },
+    { label: "6ft 7in - 200cm", value: "79" },
+    { label: "6ft 8in - 203cm", value: "80" },
+    { label: "6ft 9in - 205cm", value: "81" },
+    { label: "6ft 10in - 208cm", value: "82" },
+    { label: "6ft 11in - 210cm", value: "83" },
+  ];
 
 export const motherTongues = [
     "Abkhazian",

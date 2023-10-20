@@ -116,11 +116,7 @@ export default function AppLayout() {
                     name="setting"
 
                     options={{
-                        header: () => (
-                            <View style={{ height: 55, backgroundColor: Colors.primaryBold, flexDirection: "row", alignItems: "center", paddingHorizontal: 10 }}>
-                                <Text style={{ color: "white" }} variant='titleLarge'>Settings</Text>
-                            </View>
-                        ),
+                       headerShown:false,
                         tabBarIcon: ({ focused }) => (
                             <FontAwesome
                                 name="gear"

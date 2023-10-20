@@ -6,12 +6,13 @@ import { Text, TouchableRipple } from 'react-native-paper';
 import Colors from '../../../constants/Colors';
 import ProfileInfoCard from '../../../components/home/ProfileInfoCard';
 import { logout } from '../../../store/reducer/authSlice';
+import { router } from 'expo-router';
 
 const lists = [
   {
     title: 'My Profile',
     icon: <FontAwesome5 name="user-edit" size={24} color={Colors.textLight} />,
-    onPress: () => null,
+    onPress: () => router.push("/setting/profile"),
   },
   {
     title: 'Shortlist',

@@ -85,6 +85,8 @@ function RootLayoutNav() {
         <Stack.Screen name="(auth)/login" options={{ headerShown: false }} />
         <Stack.Screen name="profile" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="editprofile" options={{ headerShown: false }} />
+       
       </Stack>
 
     </PaperProvider>

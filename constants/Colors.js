@@ -4,6 +4,7 @@ const tintColorDark = '#fff';
 
 export default {
   primary:"#770DD5",
+  primaryLight:"#F0E3FD",
   primaryBold:"#5B0888",
   secondary:"#FD123F",
   textWhite:"#fff",
