@@ -6,7 +6,7 @@ import { calculateAge } from '../../lib/calculateAge';
 import moment from 'moment';
 import { heightCalculator } from '../../lib/heightCalculator';
 
-const notSpecfied = "Not Specfied"
+const notSpecfied = "Not Specified"
 
 const BasicInformation = () => {
 

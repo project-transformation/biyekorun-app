@@ -21,7 +21,7 @@ import axiosInstance from '../../../lib/axiosInstance'
 import { Alert } from 'react-native'
 import { getUserData } from '../../../actions/userActions'
 
-const notSpecfied = "Not Specfied"
+const notSpecfied = "Not Specified"
 
 
 const BasicInformation = () => {
