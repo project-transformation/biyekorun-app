@@ -1,4 +1,4 @@
-import { StyleSheet, View ,ScrollView} from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import React from 'react'
 import ProfileInfoCard from '../../../components/home/ProfileInfoCard'
 import { Text } from 'react-native-paper'
@@ -9,6 +9,7 @@ import { Link, router } from 'expo-router'
 import AboutMyself from '../../../components/profile/AboutMyself'
 import Religion from '../../../components/profile/Religion'
 import FamilyDetails from '../../../components/profile/FamilyDetails'
+import Education from '../../../components/profile/Education'
 
 
 
@@ -100,8 +101,27 @@ const profile = () => {
                         <FamilyDetails />
                     </View>
                 </View>
+                <View style={{ marginTop: 20 }}>
+                    <View style={styles.sectionTitle}>
+                        <Text variant='labelLarge' style={{ color: Colors.primary }}>Education & Career</Text>
 
-                <View style={{marginTop:30}}></View>
+                        <Link href={{
+                            pathname: "/editprofile",
+                            params: {
+                                title: "Education & Career",
+                                section: 5
+                            }
+                        }}>
+
+                            <Foundation name="pencil" size={24} color={Colors.primary} />
+                        </Link>
+                    </View>
+                    <View>
+                        <Education />
+                    </View>
+                </View>
+
+                <View style={{ marginTop: 30 }}></View>
 
             </ScrollView>
 
@@ -119,7 +139,7 @@ const styles = StyleSheet.create({
     itemsContainer: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-      
+
     },
     sectionTitle: {
         backgroundColor: Colors.primaryLight,

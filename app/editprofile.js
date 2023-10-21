@@ -10,12 +10,14 @@ import AboutMyself from '../components/profile/editProfile/AboutMyself';
 import BasicInformation from '../components/profile/editProfile/BasicInformation';
 import Religion from '../components/profile/editProfile/Religion';
 import FamilyDetails from '../components/profile/editProfile/FamilyDetails';
+import Education from '../components/profile/editProfile/Education';
 
 const sections = {
     1: <AboutMyself />,
     2: <BasicInformation />,
     3: <Religion />,
-    4: <FamilyDetails />
+    4: <FamilyDetails />,
+    5: <Education />,
 }
 
 const EditProfile = () => {
