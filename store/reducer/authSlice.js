@@ -2,8 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { router } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 
-
-
 const initialState = {
   user: {},
   profile: {},
@@ -21,12 +19,17 @@ const authSlice = createSlice({
       state.user = action.payload;
       state.isAuthenticated = true;
     },
-    logout: async(state) => {
+    logout: async (state) => {
       state.user = {};
       state.profile = {};
       state.isAuthenticated = false;
-      await SecureStore.deleteItemAsync("biyekorun_token");
-      router.push("/")
+      try {
+        await SecureStore.deleteItemAsync('biyekorun_token');
+        router.push("/")
+        // You can also perform any other necessary actions here after deleting the token
+      } catch (error) {
+        console.error('Error removing token:', error);
+      }
     },
   },
 });

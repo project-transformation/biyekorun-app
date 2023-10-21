@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View ,ScrollView} from 'react-native'
 import React from 'react'
 import ProfileInfoCard from '../../../components/home/ProfileInfoCard'
 import { Text } from 'react-native-paper'
@@ -7,6 +7,8 @@ import Colors from '../../../constants/Colors'
 import BasicInformation from '../../../components/profile/BasicInformation'
 import { Link, router } from 'expo-router'
 import AboutMyself from '../../../components/profile/AboutMyself'
+import Religion from '../../../components/profile/Religion'
+import FamilyDetails from '../../../components/profile/FamilyDetails'
 
 
 
@@ -14,7 +16,7 @@ const profile = () => {
     return (
         <View style={styles.wrapper}>
             <ProfileInfoCard />
-            <View style={styles.itemsContainer}>
+            <ScrollView style={styles.itemsContainer}>
                 <View>
                     <View style={styles.sectionTitle}>
                         <Text variant='labelLarge' style={{ color: Colors.primary }}>About myself</Text>
@@ -54,7 +56,54 @@ const profile = () => {
                     </View>
                 </View>
 
-            </View>
+
+
+                <View style={{ marginTop: 20 }}>
+                    <View style={styles.sectionTitle}>
+                        <Text variant='labelLarge' style={{ color: Colors.primary }}>Religion</Text>
+
+                        <Link href={{
+                            pathname: "/editprofile",
+                            params: {
+                                title: "Religion",
+                                section: 3
+                            }
+                        }}>
+
+                            <Foundation name="pencil" size={24} color={Colors.primary} />
+                        </Link>
+                    </View>
+                    <View>
+                        <Religion />
+                    </View>
+                </View>
+
+
+
+
+                <View style={{ marginTop: 20 }}>
+                    <View style={styles.sectionTitle}>
+                        <Text variant='labelLarge' style={{ color: Colors.primary }}>Family Details</Text>
+
+                        <Link href={{
+                            pathname: "/editprofile",
+                            params: {
+                                title: "Family Details",
+                                section: 4
+                            }
+                        }}>
+
+                            <Foundation name="pencil" size={24} color={Colors.primary} />
+                        </Link>
+                    </View>
+                    <View>
+                        <FamilyDetails />
+                    </View>
+                </View>
+
+                <View style={{marginTop:30}}></View>
+
+            </ScrollView>
 
 
         </View>
@@ -70,6 +119,7 @@ const styles = StyleSheet.create({
     itemsContainer: {
         paddingVertical: 10,
         paddingHorizontal: 20,
+      
     },
     sectionTitle: {
         backgroundColor: Colors.primaryLight,

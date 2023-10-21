@@ -72,7 +72,7 @@ const login = () => {
         axiosInstance.post("/user/login", loginData)
             .then(async res => {
                 setIsSubmitting(false)
-                console.log(res.data);
+                // console.log(res.data);
                 await SecureStore.setItemAsync("biyekorun_token", res.data?.token?.accessToken);
                 dispatch(setUser(res.data?.data))
 

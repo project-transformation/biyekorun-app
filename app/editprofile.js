@@ -8,10 +8,14 @@ import Constants from 'expo-constants';
 import { StatusBar } from 'expo-status-bar';
 import AboutMyself from '../components/profile/editProfile/AboutMyself';
 import BasicInformation from '../components/profile/editProfile/BasicInformation';
+import Religion from '../components/profile/editProfile/Religion';
+import FamilyDetails from '../components/profile/editProfile/FamilyDetails';
 
 const sections = {
     1: <AboutMyself />,
-    2: <BasicInformation />
+    2: <BasicInformation />,
+    3: <Religion />,
+    4: <FamilyDetails />
 }
 
 const EditProfile = () => {

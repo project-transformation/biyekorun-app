@@ -1,5 +1,5 @@
 import axiosInstance from "../lib/axiosInstance";
-import { setProfile } from "../store/reducer/authSlice";
+import { logout, setProfile } from "../store/reducer/authSlice";
 // import store from "../store";
 
 export const getUserData = () => {
@@ -10,6 +10,7 @@ export const getUserData = () => {
 
             })
             .catch(err => {
+                dispatch(logout())
                 console.log(err);
             })
     }

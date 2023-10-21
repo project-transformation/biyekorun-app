@@ -21,7 +21,7 @@ import axiosInstance from '../../../lib/axiosInstance'
 import { Alert } from 'react-native'
 import { getUserData } from '../../../actions/userActions'
 
-const notSpecfied = "Not Specified"
+const notSpecified = "Not Specified"
 
 
 const BasicInformation = () => {
@@ -137,7 +137,7 @@ const BasicInformation = () => {
                             <Text style={{ flexBasis: "50%", fontSize: 14 }} variant='labelMedium'>Marital Status</Text>
                             <TouchableRipple onPress={() => handlePresentModalPress("maritalStatus")} style={{ flex: 1 }}>
                                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flex: 1 }}>
-                                    <Text style={{ fontSize: 14 }}>:  {formValues.maritalStatus || notSpecfied}</Text>
+                                    <Text style={{ fontSize: 14 }}>:  {formValues.maritalStatus || notSpecified}</Text>
                                     <AntDesign name="right" size={14} color="black" />
                                 </View>
                             </TouchableRipple>
@@ -188,7 +188,7 @@ const BasicInformation = () => {
 
                             <TouchableRipple onPress={() => handlePresentModalPress("diet")} style={{ flex: 1 }}>
                                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flex: 1 }}>
-                                    <Text style={{ fontSize: 14 }}>:  {formValues.diet || notSpecfied}</Text>
+                                    <Text style={{ fontSize: 14 }}>:  {formValues.diet || notSpecified}</Text>
                                     <AntDesign name="right" size={14} color="black" />
                                 </View>
                             </TouchableRipple>
@@ -201,7 +201,7 @@ const BasicInformation = () => {
 
                             <TouchableRipple onPress={() => handlePresentModalPress("bloodGroup")} style={{ flex: 1 }}>
                                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", flex: 1 }}>
-                                    <Text style={{ fontSize: 14 }}>:  {formValues.bloodGroup || notSpecfied}</Text>
+                                    <Text style={{ fontSize: 14 }}>:  {formValues.bloodGroup || notSpecified}</Text>
                                     <AntDesign name="right" size={14} color="black" />
                                 </View>
                             </TouchableRipple>

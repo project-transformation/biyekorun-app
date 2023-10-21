@@ -5,6 +5,7 @@ import { Text } from 'react-native-paper';
 import { calculateAge } from '../../lib/calculateAge';
 import moment from 'moment';
 import { heightCalculator } from '../../lib/heightCalculator';
+import ListRow from './ListRow';
 
 const notSpecfied = "Not Specified"
 
@@ -47,35 +48,37 @@ const BasicInformation = () => {
         bloodGroup,
     } = profile || {};
     return (
-        <View style={{padding:5}}>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%" ,fontSize:14}} variant='labelMedium'>Age</Text>
-                <Text style={{fontSize:14}}>: {calculateAge(dateOfBirth)} Years</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Marital Status</Text>
-                <Text style={{fontSize:14}}>:  {maritalStatus || notSpecfied}</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Date of Birth</Text>
-                <Text style={{fontSize:14}}>: {moment(dateOfBirth).format("MM/DD/yyyy")}</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Height</Text>
-                <Text style={{fontSize:14}}>:  {heightCalculator(height)}</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Born and Raised</Text>
-                <Text style={{fontSize:14}}>:  {country}</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Diet</Text>
-                <Text style={{fontSize:14}}>:  {diet || notSpecfied}</Text>
-            </View>
-            <View style={styles.row}>
-                <Text style={{ flexBasis: "50%",fontSize:14 }} variant='labelMedium'>Blood Group</Text>
-                <Text style={{fontSize:14}}>:  {bloodGroup || notSpecfied}</Text>
-            </View>
+        <View style={{ padding: 5 }}>
+
+            <ListRow
+                label={"Age"}
+                value={`${calculateAge(dateOfBirth)} Years`}
+            />
+            <ListRow
+                label={"Marital Status"}
+                value={maritalStatus}
+            />
+            <ListRow
+                label={"Date of Birth"}
+                value={moment(dateOfBirth).format("MM/DD/yyyy")}
+            />
+            <ListRow
+                label={"Height"}
+                value={heightCalculator(height)}
+            />
+            <ListRow
+                label={"Born and Raised"}
+                value={country}
+            />
+            <ListRow
+                label={"Diet"}
+                value={diet}
+            />
+            <ListRow
+                label={"Blood Group"}
+                value={bloodGroup}
+            />
+
         </View>
     )
 }
@@ -87,6 +90,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         // justifyContent:"space-between",
         alignItems: "center",
-        paddingVertical:5
+        paddingVertical: 5
     }
 })

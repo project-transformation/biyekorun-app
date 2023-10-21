@@ -1,61 +1,100 @@
-import { StyleSheet, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { Searchbar, Text, TouchableRipple } from 'react-native-paper'
-import Colors from '../constants/Colors'
+import { StyleSheet, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Searchbar, Text, TouchableRipple } from 'react-native-paper';
+import Colors from '../constants/Colors';
 
-const Selector = ({ options, multiple, onSelect, value, search }) => {
+const Selector = ({ options, multiple, onSelect, value, search, max }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [records, setRecords] = useState([]);
 
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const [records, setRecords] = useState([])
+  useEffect(() => {
+    setRecords(options);
+  }, [options]);
 
-    useEffect(() => {
-        setRecords(options)
-    }, [options])
-
-
-    const onChangeSearch = query => {
-
-        setSearchQuery(query)
-        if (query) {
-            let filtered = options?.filter(x => x.label?.toLowerCase()?.includes(query?.toLowerCase()))
-            setRecords(filtered)
-        } else {
-            setRecords(options)
-        }
+  const isSelected = (optionValue) => {
+    if (multiple) {
+      return value.includes(optionValue);
+    } else {
+      return value === optionValue;
     }
+  };
 
-    return (
-        <View style={{ width: "100%" }}>
+  const toggleSelection = (optionValue) => {
+    if (multiple) {
+      const selectedCount = value.length;
 
-            {
-                search &&
-                <Searchbar
-                    placeholder="Search"
-                    onChangeText={onChangeSearch}
-                    value={searchQuery}
-                    style={{ marginVertical: 10, width: "100%" }}
-                    inputStyle={{paddingVertical:2}}
-                />
-            }
+      // Check if the maximum limit (max) has been reached.
+      if (selectedCount < max || value.includes(optionValue)) {
+        // Toggle the selection of the option.
+        const updatedValues = value.includes(optionValue)
+          ? value.filter((val) => val !== optionValue)
+          : [...value, optionValue];
+        onSelect(updatedValues);
+      }
+    } else {
+      onSelect(optionValue);
+    }
+  };
 
+  const onChangeSearch = (query) => {
+    setSearchQuery(query);
+    if (query) {
+      let filtered = options?.filter((x) =>
+        x.label?.toLowerCase()?.includes(query?.toLowerCase())
+      );
+      setRecords(filtered);
+    } else {
+      setRecords(options);
+    }
+  };
 
-            <View style={{ flexDirection: "row", gap: 5, flexWrap: "wrap" }}>
-                {
-                    records?.map((option, i) => (
-                        <TouchableRipple onPress={() => onSelect(option?.value)} key={i}>
-                            <View style={{ borderColor: option?.value === value ? Colors.secondary : "#ddd", borderWidth: 2, paddingHorizontal: 7, paddingVertical: 5, borderRadius: 50 }} >
-                                <Text style={{ color: option?.value === value ? Colors.secondary : Colors.textMedium }} variant='labelLarge'>{option?.label}</Text>
-                            </View>
-                        </TouchableRipple>
+  return (
+    <View style={{ width: '100%' }}>
+      {search && (
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+          style={{ marginVertical: 10, width: '100%' }}
+          inputStyle={{ paddingVertical: 2 }}
+        />
+      )}
 
-                    ))
-                }
+      <View style={{ flexDirection: 'row', gap: 5, flexWrap: 'wrap' }}>
+        {records?.map((option, i) => (
+          <TouchableRipple
+            onPress={() => toggleSelection(option?.value)}
+            key={i}
+          >
+            <View
+              style={{
+                borderColor: isSelected(option?.value)
+                  ? Colors.secondary
+                  : '#ddd',
+                borderWidth: 2,
+                paddingHorizontal: 7,
+                paddingVertical: 5,
+                borderRadius: 50,
+              }}
+            >
+              <Text
+                style={{
+                  color: isSelected(option?.value)
+                    ? Colors.secondary
+                    : Colors.textMedium,
+                }}
+                variant="labelLarge"
+              >
+                {option?.label}
+              </Text>
             </View>
-        </View>
+          </TouchableRipple>
+        ))}
+      </View>
+    </View>
+  );
+};
 
-    )
-}
+export default Selector;
 
-export default Selector
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
